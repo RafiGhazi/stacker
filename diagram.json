@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": 43.2, "left": -0.5, "attrs": {} },
+    {
+      "type": "wokwi-max7219-matrix",
+      "id": "matrix1",
+      "top": -186.96,
+      "left": -141.4,
+      "rotate": 90,
+      "attrs": { "chain": "4" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 129.05,
+      "left": -97.4,
+      "rotate": 180,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 166.34,
+      "left": 38.63,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton-6mm",
+      "id": "btn2",
+      "top": 135.4,
+      "left": -44,
+      "rotate": 90,
+      "attrs": { "color": "green", "xray": "1" }
+    }
+  ],
+  "connections": [
+    [ "matrix1:CLK", "nano:13", "green", [ "v0" ] ],
+    [ "matrix1:CS", "nano:10", "green", [ "v0" ] ],
+    [ "matrix1:DIN", "nano:11", "green", [ "v0" ] ],
+    [ "matrix1:GND", "nano:GND.2", "black", [ "v0" ] ],
+    [ "matrix1:V+", "nano:5V", "green", [ "v57.6", "h76.8" ] ],
+    [ "oled1:GND", "nano:GND.1", "black", [ "v-38.4", "h67.2" ] ],
+    [ "oled1:VCC", "nano:5V", "red", [ "v-48", "h38.55" ] ],
+    [ "r1:2", "nano:5V", "red", [ "v28.8", "h145.2" ] ],
+    [ "oled1:SDA", "nano:A4", "green", [ "v-48", "h-19.13" ] ],
+    [ "nano:A5", "oled1:SCL", "green", [ "v0" ] ],
+    [ "r1:1", "btn2:2.l", "green", [ "v0" ] ],
+    [ "btn2:2.l", "nano:2", "green", [ "v0" ] ],
+    [ "btn2:1.r", "nano:GND.1", "black", [ "v20", "h163.2", "v-76.8" ] ]
+  ],
+  "dependencies": {}
+}
